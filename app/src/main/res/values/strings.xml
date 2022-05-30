@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Examen-Espejo-Garcia</string>
+
+    <string name="tv_ordenado">Ordenado</string>
+    <string name="tv_indices">Indices</string>
+    <string name="tv_original">Original</string>
+
+    <string name="btn_ordenar">Ordenar</string>
+    <string name="btn_mostrar">Mostrar</string>
+    <string name="btn_segundo">Segunda Actividad</string>
 </resources>
