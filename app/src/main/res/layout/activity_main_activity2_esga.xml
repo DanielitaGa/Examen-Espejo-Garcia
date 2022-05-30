@@ -23,27 +23,29 @@
         android:layout_width="94dp"
         android:layout_height="48dp"
         android:layout_marginStart="292dp"
-        android:layout_marginTop="264dp"
+        android:layout_marginTop="544dp"
         android:layout_marginEnd="27dp"
         android:text="CERRAR"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="241dp"
+        android:layout_height="43dp"
         android:ems="10"
         android:hint="Ingrese un número"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="67dp" />
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="68dp" />
 
     <ScrollView
         android:id="@+id/ScrollSegundo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="261dp"
+        android:layout_height="455dp"
+        android:layout_marginEnd="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
