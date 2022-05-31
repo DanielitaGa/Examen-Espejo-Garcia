@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExamenEspejoGarcia">
         <activity
-            android:name=".MainActivity2ESGA"
+            android:name=".MainActivity1ESGA"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

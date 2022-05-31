@@ -52,14 +52,11 @@ public class MainActivity1ESGA extends AppCompatActivity {
                         }
                     }
 
-
-
                 });
     }
 
     public void onClicSegundo(View view){
         Intent intent = new Intent(this, MainActivity2ESGA.class);
-
         resultado.launch(intent);
     }
 
