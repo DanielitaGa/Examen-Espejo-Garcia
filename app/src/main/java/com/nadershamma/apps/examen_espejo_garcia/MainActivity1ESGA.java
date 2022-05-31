@@ -13,12 +13,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity1ESGA extends AppCompatActivity {
 
-    ArrayList<Integer> indices, original;
+    ArrayList<Integer> original;
 
     ActivityResultLauncher<Intent> resultado;
 
@@ -28,7 +29,6 @@ public class MainActivity1ESGA extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity1_esga);
-        indices = new ArrayList<>();
         original = new ArrayList<>();
 
         lv_ordenar = findViewById(R.id.lv_ordenar);
@@ -44,8 +44,10 @@ public class MainActivity1ESGA extends AppCompatActivity {
                             String[] itemsOriginal = datos.getDataString().split("_");
                             original =  new ArrayList<>();
 
-                            for (String item:itemsOriginal) {
-                                original.add(Integer.valueOf(item));
+                            int i=0;
+                            while(i<itemsOriginal.length){
+                                original.add(Integer.valueOf(itemsOriginal[i]));
+                                i++;
                             }
                         }
                     }
@@ -75,23 +77,43 @@ public class MainActivity1ESGA extends AppCompatActivity {
         lv_indices.setAdapter(adapterIndices);
     }
 
-    private ArrayList<Integer> ordenarIndices(ArrayList<Integer> original){
-        ArrayList<Integer> indices = new ArrayList<>();
-        int temp=0;
+    public void onClicOrdenar(View view){
+        ArrayAdapter<Integer> adapterIndices = new ArrayAdapter<>(getApplicationContext(),
+                androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item,
+                generarOrdenado((ArrayList<Integer>) lv_indices.getAdapter()));
+
+        lv_ordenar.setAdapter(adapterIndices);
+    }
+
+    private ArrayList<Integer> generarOrdenado(ArrayList<Integer> indices){
+        ArrayList<Integer> ordenado = new ArrayList<>();
         for (int item:
-                original) {
-            indices.add(temp);
-            temp++;
+             indices) {
+            ordenado.add(Integer.valueOf(lv_original.getAdapter().getItem(item).toString()));
         }
-        for (int i=0;i<original.size();i++){
-            for(int j=i;j<original.size();j++){
+        return ordenado;
+    }
+
+    private ArrayList<Integer> ordenarIndices(ArrayList<Integer> original){
+        ArrayList<Integer> indices = new ArrayList<>(original.size());
+        int temp=0;
+        int i=0;
+        int j=0;
+
+        while(i<original.size()){
+            while(j<original.size()){
                 if(original.get(i)>original.get(j)){
                     temp = indices.get(j);
                     indices.set(j,indices.get(i));
                     indices.set(i,temp);
                 }
+                j++;
             }
+            i++;
         }
+
         return indices;
     }
+
+
 }
