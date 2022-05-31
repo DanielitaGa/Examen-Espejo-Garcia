@@ -49,15 +49,14 @@ public class MainActivity2ESGA extends AppCompatActivity {
     }
 
     public void onClickCerrar(View view){
-        ArrayList<String> datoSelected = (ArrayList<String>) listViewDatos.getAdapter();
 
 //                Toast.makeText(getApplicationContext(),
 //                        "Item seleccionado" + itemSelected,
 //                        Toast.LENGTH_LONG).show();
-    String dato=datoSelected.get(0);
+    String dato=listViewDatos.getAdapter().getItem(0).toString();
     int i = 1;
-    while (i<datoSelected.size()){
-        dato = dato + "_" +datoSelected.get(i);
+    while (i<listViewDatos.getAdapter().getCount()){
+        dato = dato + "_" +listViewDatos.getAdapter().getItem(i).toString();
         i++;
     }
         Intent intent = new Intent();
