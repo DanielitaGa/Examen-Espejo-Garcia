@@ -11,7 +11,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -49,6 +51,7 @@ public class MainActivity1ESGA extends AppCompatActivity {
                                 original.add(Integer.valueOf(itemsOriginal[i]));
                                 i++;
                             }
+
                         }
                     }
 
@@ -62,11 +65,11 @@ public class MainActivity1ESGA extends AppCompatActivity {
 
     public void onClicMostrar(View view){
         ArrayAdapter<Integer> adapterOriginal = new ArrayAdapter<>(getApplicationContext(),
-                androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item,
+                android.R.layout.simple_expandable_list_item_1,
                 original);
 
         ArrayAdapter<Integer> adapterIndices = new ArrayAdapter<>(getApplicationContext(),
-                androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item,
+                android.R.layout.simple_expandable_list_item_1,
                 ordenarIndices(original));
 
         lv_original.setAdapter(adapterOriginal);
@@ -76,33 +79,47 @@ public class MainActivity1ESGA extends AppCompatActivity {
 
     public void onClicOrdenar(View view){
         ArrayAdapter<Integer> adapterIndices = new ArrayAdapter<>(getApplicationContext(),
-                androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item,
-                generarOrdenado((ArrayList<Integer>) lv_indices.getAdapter()));
+                android.R.layout.simple_expandable_list_item_1,
+                generarOrdenado(lv_indices.getAdapter()));
 
         lv_ordenar.setAdapter(adapterIndices);
     }
 
-    private ArrayList<Integer> generarOrdenado(ArrayList<Integer> indices){
+    private ArrayList<Integer> generarOrdenado(ListAdapter indices){
         ArrayList<Integer> ordenado = new ArrayList<>();
-        for (int item:
-             indices) {
-            ordenado.add(Integer.valueOf(lv_original.getAdapter().getItem(item).toString()));
+        int i = 0;
+
+        while(i<indices.getCount()){
+            ordenado.add(Integer.valueOf(lv_original.getAdapter().getItem((int)indices.getItem(i)).toString()));
+            i++;
         }
+
         return ordenado;
     }
 
     private ArrayList<Integer> ordenarIndices(ArrayList<Integer> original){
-        ArrayList<Integer> indices = new ArrayList<>(original.size());
+        ArrayList<Integer> indices = new ArrayList<>();
+        ArrayList<Integer> sinCambios = new ArrayList<>(original);
         int temp=0;
+
+        while(temp<original.size()){
+            indices.add(temp);
+            temp++;
+        }
+
         int i=0;
         int j=0;
 
         while(i<original.size()){
+            j=i;
             while(j<original.size()){
-                if(original.get(i)>original.get(j)){
+                if(sinCambios.get(i)>sinCambios.get(j)){
                     temp = indices.get(j);
                     indices.set(j,indices.get(i));
                     indices.set(i,temp);
+                    temp = sinCambios.get(j);
+                    sinCambios.set(j,sinCambios.get(i));
+                    sinCambios.set(i,temp);
                 }
                 j++;
             }

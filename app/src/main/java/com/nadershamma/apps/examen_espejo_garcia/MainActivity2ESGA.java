@@ -40,12 +40,12 @@ public class MainActivity2ESGA extends AppCompatActivity {
 
     public void onClickCargar(View view){
     datos.add(et_numero.getText().toString());
-        Toast.makeText(getApplicationContext(), "Dato regresado" + et_numero.getText().toString(),Toast.LENGTH_LONG).show();
         ArrayAdapter<String> adapter =  //actualizar la lista
                 new ArrayAdapter<String>(this,
                         android.R.layout.simple_expandable_list_item_1, datos);
         //asociar el adapter con el control (vista) que va mostrar los datos
         listViewDatos.setAdapter(adapter);
+        et_numero.setText("");
     }
 
     public void onClickCerrar(View view){
