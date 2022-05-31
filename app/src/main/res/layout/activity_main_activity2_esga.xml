@@ -12,50 +12,63 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="292dp"
         android:layout_marginTop="65dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginEnd="178dp"
         android:onClick="onClickCargar"
         android:text="Ingresar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextNumero"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonCerrar"
-        android:layout_width="94dp"
-        android:layout_height="48dp"
+        android:layout_width="108dp"
+        android:layout_height="51dp"
         android:layout_marginStart="292dp"
-        android:layout_marginTop="544dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginTop="152dp"
+        android:layout_marginEnd="178dp"
+        android:onClick="onClickCerrar"
         android:text="CERRAR"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextNumero"
-        android:layout_width="241dp"
-        android:layout_height="48dp"
+        android:layout_width="299dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="9dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="Ingrese un número"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="68dp" />
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollSegundo"
+        app:layout_constraintEnd_toStartOf="@+id/buttonIngresar"
+        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/ScrollSegundo"
-        android:layout_width="261dp"
-        android:layout_height="455dp"
-        android:layout_marginEnd="100dp"
+        android:layout_width="299dp"
+        android:layout_height="299dp"
+        android:layout_marginBottom="39dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCerrar"
+        app:layout_constraintHorizontal_bias="0.376"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumero"
+        app:layout_constraintVertical_bias="0.756">
 
         <ListView
             android:id="@+id/listViewDatos"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

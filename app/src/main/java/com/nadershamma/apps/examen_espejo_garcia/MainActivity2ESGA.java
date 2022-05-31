@@ -2,8 +2,12 @@ package com.nadershamma.apps.examen_espejo_garcia;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +24,7 @@ public class MainActivity2ESGA extends AppCompatActivity {
     private Button btn_cerrar;
     private ListView listViewDatos;
     private ArrayList<String> datos;
-    Boolean a;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,4 +47,26 @@ public class MainActivity2ESGA extends AppCompatActivity {
         //asociar el adapter con el control (vista) que va mostrar los datos
         listViewDatos.setAdapter(adapter);
     }
+
+    public void onClickCerrar(View view){
+        ArrayList<String> datoSelected = (ArrayList<String>) listViewDatos.getAdapter();
+
+//                Toast.makeText(getApplicationContext(),
+//                        "Item seleccionado" + itemSelected,
+//                        Toast.LENGTH_LONG).show();
+    String dato=datoSelected.get(0);
+    int i = 1;
+    while (i<datoSelected.size()){
+        dato = dato + "_" +datoSelected.get(i);
+        i++;
+    }
+        Intent intent = new Intent();
+        intent.setData(Uri.parse(dato));
+        setResult(Activity.RESULT_OK, intent);
+        finish();
+    }
+
+
+
+
 }
