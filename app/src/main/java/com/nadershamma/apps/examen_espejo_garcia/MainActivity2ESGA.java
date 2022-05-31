@@ -35,8 +35,8 @@ public class MainActivity2ESGA extends AppCompatActivity {
 
     public void onClickCargar(View view){
     names = new ArrayList<String>();
-    a = names.add(et_numero.getText().toString());
-        Toast.makeText(getApplicationContext(), "Dato regresado" + a,Toast.LENGTH_LONG).show();
+    names.add(et_numero.getText().toString());
+        Toast.makeText(getApplicationContext(), "Dato regresado" + et_numero.getText().toString(),Toast.LENGTH_LONG).show();
         ArrayAdapter<String> adapter =  //actualizar la lista
                 new ArrayAdapter<String>(this,
                         android.R.layout.simple_expandable_list_item_1, names);

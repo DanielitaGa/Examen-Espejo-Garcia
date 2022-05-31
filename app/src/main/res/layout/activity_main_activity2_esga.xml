@@ -13,6 +13,7 @@
         android:layout_marginStart="292dp"
         android:layout_marginTop="65dp"
         android:layout_marginEnd="27dp"
+        android:onClick="onClickCargar"
         android:text="Ingresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +35,7 @@
     <EditText
         android:id="@+id/editTextNumero"
         android:layout_width="241dp"
-        android:layout_height="43dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:hint="Ingrese un número"
         android:inputType="textPersonName"
