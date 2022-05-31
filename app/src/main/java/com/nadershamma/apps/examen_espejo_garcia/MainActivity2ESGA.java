@@ -19,7 +19,7 @@ public class MainActivity2ESGA extends AppCompatActivity {
     private Button btn_siguiente;
     private Button btn_cerrar;
     private ListView listViewDatos;
-    private ArrayList<String> names;
+    private ArrayList<String> datos;
     Boolean a;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +30,16 @@ public class MainActivity2ESGA extends AppCompatActivity {
         btn_siguiente = findViewById(R.id.buttonIngresar);
         btn_cerrar = findViewById(R.id.buttonCerrar);
         listViewDatos = findViewById(R.id.listViewDatos);
+        datos = new ArrayList<>();
     }
 
 
     public void onClickCargar(View view){
-    names = new ArrayList<String>();
-    names.add(et_numero.getText().toString());
+    datos.add(et_numero.getText().toString());
         Toast.makeText(getApplicationContext(), "Dato regresado" + et_numero.getText().toString(),Toast.LENGTH_LONG).show();
         ArrayAdapter<String> adapter =  //actualizar la lista
                 new ArrayAdapter<String>(this,
-                        android.R.layout.simple_expandable_list_item_1, names);
+                        android.R.layout.simple_expandable_list_item_1, datos);
         //asociar el adapter con el control (vista) que va mostrar los datos
         listViewDatos.setAdapter(adapter);
     }
